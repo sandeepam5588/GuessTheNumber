@@ -1,11 +1,18 @@
+/**
+ * Command Line Interface application.
+ * Number Guessing Game.
+ */
+
+ // library that supports user input
 const readline = require('readline-sync');
 
-
+//get the user input and find the maximum number from the range
 const inputRange = getTheRange();
 const max = getMax(inputRange);
-console.log(max);
+
 play(max);
 
+//lets the user to select the range and returns the selected range
  function getTheRange() {
      console.log(`
      1. Range 0 to 5
@@ -13,6 +20,7 @@ play(max);
      3. Range 0 to 50
      4. Range 0 to 100
      `);
+
      const range = readline.question("\nSelect the Range (1 to 4): ");
      if(range <= 0 || range > 4) {
          console.log("\nPlease enter the valid range..!");
@@ -21,18 +29,27 @@ play(max);
      return range;
  }
 
+ //extrracts the maximum nimber that can be generated from the range selected by the user
  function getMax(inputRange) {
     if(inputRange == 1) return 5;
     else if(inputRange == 2) return 10;
     else if(inputRange == 3) return 50;
     else return 100;
  }
+
+ //Generates the random number between 0.0 to 1.0 and converts it to a number that ranges between 0 to max
 function play(max) {
     let totalGuess = 0;
     const numberGenerated = Math.round(Math.random() * max);
     guess(numberGenerated, totalGuess, max);
 }
 
+/**
+ * main game code..
+ * gets the user input and compares it.
+ * if the user guess is wrong the function will call itself(Recurrssion).
+ * if the guess is correct program ends
+ */
 function guess(numberGenerated, totalGuess, max) {
     const numberGuessed = readline.question(`Guess the number: `);
     if(numberGuessed < 0 || numberGuessed > max) {
