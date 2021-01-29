@@ -2,7 +2,6 @@
 -----------------------
 
 Title : Guess The Number.
-language : JavaScript
 
 This is a simple CLI app that allows user to select the range and asks to guess the number between the selected range.
 The number is generated randomly.
