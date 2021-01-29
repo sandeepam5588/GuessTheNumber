@@ -1,0 +1,15 @@
+{
+  "name": "guessthenumber",
+  "version": "1.0.0",
+  "description": "CLI app to guess the random number generated betweeen selected range",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "author": "Sandeepa M",
+  "license": "ISC",
+  "dependencies": {
+    "readline-sync": "^1.4.10"
+  }
+}
